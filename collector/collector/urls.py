@@ -23,9 +23,13 @@ from rest_framework import routers
 #Register the api endpoints
 router = routers.DefaultRouter()
 router.register(r'signals', views.signalsViewSet)
+#router.register('', views.signalsViewSet)
 
 #Wire the URLs
 urlpatterns = [
+    #path('',  include(router.urls)),
+    #path('',views.tradinghook, name="tradinghook"),
+    path('tradinghook/', views.tradinghook,name="tradinghook"),
     path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
 ]
